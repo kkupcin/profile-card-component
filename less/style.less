@@ -1,0 +1,292 @@
+/* CSS RESET */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CUSTOM CODE */
+
+@defaultFont: "Kumbh Sans", sans-serif;
+
+@primaryAccentClr: hsl(185, 75%, 39%);
+@primaryDarkClr: hsl(229, 23%, 23%);
+@primaryGray: hsl(227, 10%, 46%);
+
+@neutralGray: hsl(0, 0%, 59%);
+
+@defaultFontSize: 18px;
+
+html {
+  overflow: hidden;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: @defaultFontSize;
+  background-color: @primaryAccentClr;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: @defaultFont;
+
+  &::before {
+    content: "";
+    background-image: url("../images/bg-pattern-top.svg");
+    position: absolute;
+    height: 978px;
+    width: 978px;
+    bottom: 50%;
+    right: 50%;
+    z-index: 2;
+  }
+
+  &::after {
+    content: "";
+    background-image: url("../images/bg-pattern-bottom.svg");
+    position: absolute;
+    height: 978px;
+    width: 978px;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+  }
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 16px;
+  z-index: 4;
+  box-shadow: 0px 10px 26px -12px rgba(0, 0, 0, 0.4);
+
+  .card__header {
+    background-image: url("../images/bg-pattern-card.svg");
+    border-radius: 16px 16px 0 0;
+    height: 120px;
+  }
+
+  .card__avatar {
+    background-image: url("../images/image-victor.jpg");
+    background-position: cover;
+    height: 96px;
+    width: 96px;
+    border-radius: 50%;
+    border: 0.4rem solid #fff;
+    margin: -48px auto 0 auto;
+  }
+
+  .card__info {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 3rem;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.5px solid #f2f2f2;
+
+    div {
+      display: flex;
+      justify-content: space-around;
+
+      h2 {
+        color: @primaryDarkClr;
+        font-weight: 700;
+        margin: 0 0.5rem;
+      }
+
+      h3 {
+        color: @primaryGray;
+      }
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: @primaryGray;
+      margin-top: 0.8rem;
+    }
+  }
+
+  .card__stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+
+    .stats__col {
+      padding: 1rem 1.5rem;
+      text-align: center;
+
+      h2 {
+        color: @primaryDarkClr;
+        font-weight: 700;
+      }
+
+      p {
+        color: @primaryGray;
+        font-size: 0.6rem;
+        margin-top: 0.5rem;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .card__info {
+      padding: 1rem 2rem;
+    }
+
+    .card__stats {
+      padding: 1rem;
+
+      .stats__col {
+        padding: 1rem 1rem;
+      }
+    }
+  }
+}
+
+.attribution {
+  padding: 2rem;
+  font-size: 1rem;
+  margin-top: 2rem;
+  color: @primaryDarkClr;
+  text-align: center;
+  z-index: 4;
+
+  a {
+    text-decoration: none;
+    color: @primaryDarkClr;
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 375px) {
+    font-size: 0.8rem;
+  }
+}
